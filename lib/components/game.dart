@@ -1,18 +1,18 @@
 import 'dart:async';
 import 'dart:math';
-import 'dart:ui' as ui;
+import 'dart:ui' as ui; // DartUI
 
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
-import 'package:flutter/material.dart';                    // Add this import
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:xml/xml.dart';
 import 'package:xml/xpath.dart';
 
 import 'background.dart';
 import 'brick.dart';
-import 'enemy.dart';                                       // Add this import
+import 'enemy.dart';
 import 'ground.dart';
 import 'player.dart';
 
@@ -30,7 +30,7 @@ class MyPhysicsGame extends Forge2DGame {
   @override
   FutureOr<void> onLoad() async {
     final [backgroundImage, aliensImage, elementsImage, tilesImage] = await [
-      images.load('colored_grass.png'),
+      images.load('colored_desert.png'),
       images.load('spritesheet_aliens.png'),
       images.load('spritesheet_elements.png'),
       images.load('spritesheet_tiles.png'),
@@ -44,7 +44,7 @@ class MyPhysicsGame extends Forge2DGame {
 
     await world.add(Background(sprite: Sprite(backgroundImage)));
     await addGround();
-    unawaited(addBricks().then((_) => addEnemies()));      // Edit this line
+    unawaited(addBricks().then((_) => addEnemies()));
     await addPlayer();
 
     return super.onLoad();
@@ -142,7 +142,7 @@ class MyPhysicsGame extends Forge2DGame {
       );
       await Future<void>.delayed(const Duration(seconds: 1));
     }
-    enemiesFullyAdded = true;                              // To here.
+    enemiesFullyAdded = true;
   }
 }
 

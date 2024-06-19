@@ -23,11 +23,9 @@ enum EnemyColor {
 
   const EnemyColor({required this.color, required this.boss});
 
-  static EnemyColor get randomColor =>
-      EnemyColor.values[Random().nextInt(EnemyColor.values.length)];
+  static EnemyColor get randomColor => EnemyColor.values[Random().nextInt(EnemyColor.values.length)];
 
-  String get fileName =>
-      'alien${color.capitalize}_${boss ? 'suit' : 'square'}.png';
+  String get fileName => 'alien${color.capitalize}_${boss ? 'suit' : 'square'}.png';
 }
 
 class Enemy extends BodyComponentWithUserData with ContactCallbacks {
@@ -62,14 +60,12 @@ class Enemy extends BodyComponentWithUserData with ContactCallbacks {
     if (interceptVelocity > 35) {
       removeFromParent();
     }
-
     super.beginContact(other, contact);
   }
 
   @override
   update(double dt) {
     super.update(dt);
-
     if (position.x > camera.visibleWorldRect.right + 10 ||
         position.x < camera.visibleWorldRect.left - 10) {
       removeFromParent();
@@ -78,6 +74,5 @@ class Enemy extends BodyComponentWithUserData with ContactCallbacks {
 }
 
 extension on String {
-  String get capitalize =>
-      characters.first.toUpperCase() + characters.skip(1).toLowerCase().join();
+  String get capitalize => characters.first.toUpperCase() + characters.skip(1).toLowerCase().join();
 }

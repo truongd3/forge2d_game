@@ -111,8 +111,7 @@ class Player extends BodyComponent with DragCallbacks {
 }
 
 extension on String {
-  String get capitalize =>
-      characters.first.toUpperCase() + characters.skip(1).toLowerCase().join();
+  String get capitalize => characters.first.toUpperCase() + characters.skip(1).toLowerCase().join();
 }
 
 class _DragPainter extends CustomPainter {

@@ -40,7 +40,7 @@ enum BrickSize {
 enum BrickDamage { none, some, lots }
 
 Map<BrickDamage, String> brickFileNames(BrickType type, BrickSize size) {
-  return switch ((type, size)) {
+  return switch ((type, size)) { // Combination of bricks
     (BrickType.explosive, BrickSize.size140x70) => {
         BrickDamage.none: 'elementExplosive009.png',
         BrickDamage.some: 'elementExplosive012.png',
